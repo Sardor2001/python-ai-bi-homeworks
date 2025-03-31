@@ -7,7 +7,7 @@ def get_movie_recommendation(genre_name):
     BASE_URL = "https://api.themoviedb.org/3"
 
     try:
-        # Get the list of genres
+        # Step 1: Get the list of genres
         genre_url = f"{BASE_URL}/genre/movie/list"
         genre_params = {"api_key": API_KEY, "language": "en-US"}
         genre_response = requests.get(genre_url, params=genre_params)
@@ -25,7 +25,7 @@ def get_movie_recommendation(genre_name):
             print(f"Genre '{genre_name}' not found. Please try another genre.")
             return
 
-        # Fetch movies from the selected genre
+        # Step 2: Fetch movies from the selected genre
         discover_url = f"{BASE_URL}/discover/movie"
         discover_params = {
             "api_key": API_KEY,
@@ -41,7 +41,7 @@ def get_movie_recommendation(genre_name):
             print(f"No movies found for the genre '{genre_name}'.")
             return
 
-        # Recommend a random movie
+        # Step 3: Recommend a random movie
         random_movie = random.choice(movies)
         title = random_movie.get("title")
         overview = random_movie.get("overview")

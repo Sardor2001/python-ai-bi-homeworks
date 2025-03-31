@@ -8,7 +8,7 @@ def get_weather_data(city):
     params = {
         "q": city,
         "appid": api_key,
-        "units": "metric"  # Use "imperial" for Fahrenheit
+        "units": "metric"
     }
 
     try:
@@ -35,5 +35,5 @@ def get_weather_data(city):
 
 
 if __name__ == "__main__":
-    city = "Tashkent"  # Replace with your desired city
+    city = "Tashkent" 
     get_weather_data(city)
